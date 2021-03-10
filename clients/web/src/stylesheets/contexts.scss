@@ -1,0 +1,12 @@
+#profile {
+  padding-top: 30px;
+}
+
+#profileContent > header {
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0;
+  }
+}

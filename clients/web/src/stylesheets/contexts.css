@@ -1,0 +1,17 @@
+#profile {
+  padding-top: 30px;
+}
+
+#profileContent > header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#profileContent > header h2 {
+  margin: 0;
+}
+/*# sourceMappingURL=contexts.css.map */

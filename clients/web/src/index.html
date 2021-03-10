@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pint'images</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">Pint'images</h1>
+      <nav>
+        <ul>
+          <li><a href="" class="home">Flux d'images</a></li>
+          <li><a href="" class="profile">Mon profil</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="panelSlider">
+        <div class="panel stripes">
+          <section id="pixFeed" class="gallery">
+            <div
+              itemscope
+              itemtype="http://schema.org/ImageGallery"
+              class="picture"
+              rv-each-list="state.list"
+            >
+              <figure
+                itemprop="associatedMedia"
+                itemscope
+                itemtype="http://schema.org/ImageObject"
+              >
+                <img rv-src="list.thumb" alt="" />
+              </figure>
+              <figcaption itemprop="caption description" itemprop="thumbnail">
+                { list.author }
+                <br/>
+                <button class="likeButton icon-heart-empty" rv-data-pid="list.id" rv-data-index="$index">
+                  <span>like</span>
+                </button>
+              </figcaption>
+            </div>
+          </section>
+        </div>
+        <div class="panel stripes-alt">
+          <section id="profile">
+            <form id="authForm" action="">
+              <div class="formCards">
+                <div id="registrationForm" class="card hide">
+                  <div class="action">
+                    <button id="show-login">Me connecter</button>
+                  </div>
+                  <h3>Inscription par email</h3>
+                  <label for="registrationName">Name</label>
+                  <input
+                    type="text"
+                    name="registrationName"
+                    id="registration-name"
+                  />
+                  <label for="registrationEmail">Email</label>
+                  <input
+                    type="email"
+                    name="registrationEmail"
+                    id="registration-email"
+                  />
+                  <br />
+                  <label for="registrationConfirmEmail">Confirmer Email</label>
+                  <input
+                    type="email"
+                    name="registrationConfirmEmail"
+                    id="registration-confirm-email"
+                    autocomplete="disable"
+                  />
+                  <br />
+                  <label for="registrationPassword">Mot de passe</label>
+                  <input
+                    type="password"
+                    name="registrationPassword"
+                    id="registration-password"
+                  />
+                  <br />
+                  <button id="register">Inscription</button>
+                </div>
+                <div id="loginForm" class="card">
+                  <div class="action">
+                    <button id="show-register">M'inscrire avec un email</button>
+                  </div>
+                  <h3>Connexion</h3>
+                  <label for="">Email</label>
+                  <input type="email" id="login-email" /><br />
+                  <label for="">Password</label>
+                  <input type="password" id="login-password" /><br />
+                  <p id="forgot-password">J'ai oublié mon mot de passe</p>
+                  <button id="login">Connexion</button>
+                </div>
+              </div>
+            </form>
+            <section id="profileContent" class="hide">
+              <header class="card">
+                <div id="avatarPlaceholder" class="avatar">
+                  <figure>
+                    <img rv-src="state.profile.avatarPath" alt="" />
+                  </figure>
+
+                  <form action="" id="avatarForm">
+                    <input
+                      type="file"
+                      id="avatarImage"
+                      multiple
+                      accept="image/*"
+                      class="hide"
+                    />
+                    <button id="fileSelect" class="avatarSelectButton">Choisir une image</button>
+                  </form>
+                </div>
+
+                <h2>{ state.profile.name }</h2>
+
+                <button id="signout">Déconnexion</button>
+              </header>
+
+              <section id="favoriteFeed" class="gallery">
+                <header>
+                  <h2>Mes images favorites</h2>
+                </header>
+                <div
+                  itemscope
+                  itemtype="http://schema.org/ImageGallery"
+                  class="picture"
+                  rv-each-favs="state.favs"
+                >
+                  <figure
+                    itemprop="associatedMedia"
+                    itemscope
+                    itemtype="http://schema.org/ImageObject"
+                  >
+                    <img rv-src="favs.thumb" alt="" />
+                  </figure>
+                  <figcaption
+                    itemprop="caption description"
+                    itemprop="thumbnail"
+                  >
+                    { favs.author }
+                  </figcaption>
+                </div>
+              </section>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

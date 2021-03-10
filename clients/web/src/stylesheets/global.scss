@@ -1,0 +1,19 @@
+// Global rules
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: $default-font;
+  color: $primary-color;
+  margin: 0;
+}
+
+// utils
+.hide {
+  display: none;
+}
+
